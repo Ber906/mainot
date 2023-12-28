@@ -5,7 +5,7 @@ const app = express();
 const chalk = require('chalk');
 const logger = require("./system-settings/console/console-logger.js");
 const path = require('path');
-const PORT = process.env.PORT || 10000;
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
@@ -13,8 +13,8 @@ console.clear();
 function startBot(message) {
     (message) ? logger(message, "starting") : "";
   console.log(chalk.blue('𝙳𝙴𝙿𝙻𝙾𝚈𝙸𝙽𝙶 𝙼𝙰𝙸𝙽 𝚂𝙴𝚁𝚅𝙴𝚁\n'));
-  logger.loader(`deploying app on port ${chalk.blueBright(PORT)}`);
-  app.listen(logger.loader(`app deployed on port ${chalk.blueBright(PORT)}`));
+  logger.loader(`deploying app on port ${chalk.blueBright("10000")}`);
+  app.listen(logger.loader(`app deployed on port ${chalk.blueBright("10000")}`));
   const child = spawn("node", ["--trace-warnings", "--async-stack-traces", "system.js"], {
         cwd: __dirname,
         stdio: "inherit",
